@@ -16,7 +16,7 @@ class LoginPage extends StatelessWidget {
         SizedBox(
           height: 60,
           
-          
+        
         ),
        
            Container(
@@ -111,7 +111,7 @@ class LoginPage extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-           Wrap( children: <Widget>[
+           Wrap( children: <Widget>[ //new hw
              ElevatedButton( child: Image.asset("assets/image/google.png",
                height: 40,
                width: 25,),
