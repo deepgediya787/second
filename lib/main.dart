@@ -1,9 +1,12 @@
 
 import 'package:flutter/material.dart';
-import 'package:y_not/first.dart';
-import 'package:y_not/goal.dart';
-import 'package:y_not/login.dart';
-import 'package:y_not/xender.dart';
+import 'package:y_not/choice.dart';
+
+import 'package:y_not/pages/first.dart';
+import 'package:y_not/pages/goal.dart';
+import 'package:y_not/pages/login.dart';
+import 'package:y_not/select.dart';
+import 'package:y_not/pages/xender.dart';
 
 
 
@@ -19,7 +22,7 @@ class MyApp extends StatelessWidget {
      debugShowCheckedModeBanner: false,
       // initialRoute: "/",
       routes:{
-        "/": (context) => MyApp()
+        "/": (BuildContext context) => MyApp()
         // "/firstpage": (BuildContext context) => FirstPage(),
         //  "/": (BuildContext context) => LoginPage(),
         //   "/loginpage": (BuildContext context) => LoginPage(),
