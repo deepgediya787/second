@@ -1,11 +1,11 @@
 
 import 'package:flutter/material.dart';
-import 'package:y_not/choice.dart';
+import 'package:y_not/pages/choice.dart';
 
 import 'package:y_not/pages/first.dart';
 import 'package:y_not/pages/goal.dart';
 import 'package:y_not/pages/login.dart';
-import 'package:y_not/select.dart';
+import 'package:y_not/pages/select.dart';
 import 'package:y_not/pages/xender.dart';
 
 
