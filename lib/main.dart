@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
      debugShowCheckedModeBanner: false,
       // initialRoute: "/",
       routes:{
-        "/": (BuildContext context) => MyApp()
+        "/": (BuildContext context) => ChoicePage()
         // "/firstpage": (BuildContext context) => FirstPage(),
         //  "/": (BuildContext context) => LoginPage(),
         //   "/loginpage": (BuildContext context) => LoginPage(),

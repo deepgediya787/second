@@ -8,6 +8,7 @@ class ChoicePage extends StatefulWidget {
 class _ChoicePageState extends State<ChoicePage> {
   bool _selectedOption = false;
   bool _Selected = false;
+  int? _value = 1;
   
   @override
   Widget build(BuildContext context) {
@@ -68,14 +69,16 @@ class _ChoicePageState extends State<ChoicePage> {
    ChoiceChip(
   label: Text('Option 1'),
   labelStyle: TextStyle(color: Colors.white),
-    backgroundColor: Colors.black54,
+    // backgroundColor: Colors.black54,
     selectedColor: Colors.blue,
-  selected: _selectedOption == 1,
+  // selected: _selectedOption == 1,
   onSelected: (bool selected) {
     setState(() {
-      _selectedOption = (selected ? 1 : null) as bool;
+      // _Selected= false;
+      // _selectedOption = !_Selected ;
+      _Selected: !_Selected;
     });
-  },
+  }, selected: _Selected, 
 )
 
 
@@ -85,6 +88,25 @@ class _ChoicePageState extends State<ChoicePage> {
         ],
         
       ),
+
+       Wrap(
+		children: List.generate(
+			3,
+			(int index) {
+			return ChoiceChip(
+				padding: EdgeInsets.all(8),
+				label: Text('Item '),
+				selectedColor: Colors.green,
+				selected: _value == index,
+				onSelected: (bool selected) {
+				setState(() {
+					_value = selected ? index : null;
+				});
+				},
+			);
+			},
+		).toList(),
+		),
       
         
         ],

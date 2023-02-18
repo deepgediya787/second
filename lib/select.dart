@@ -1,53 +1,54 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
+void main() {
+runApp(MyThreeOptions());
 }
 
-class _MyAppState extends State<MyApp> {
-  String _selectedOption = "Option 1";
+class MyThreeOptions extends StatefulWidget {
+const MyThreeOptions({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          ChoiceChip(
-            label: Container(
-              width: 50.0,
-              height: 50.0,
-              color: Colors.red,
-              
-            ),
-            
-            selected: _selectedOption == "Option 1",
-            onSelected: (bool selected) {
-              setState(() {
-                if (selected) {
-                  _selectedOption = "Option 1";
-                }
-              });
-            },
-          ),
-          ChoiceChip(
-            label: Container(
-              width: 100.0,
-              height: 50.0,
-              color: Colors.blue,
-            ),
-            selected: _selectedOption == "Option 2",
-            onSelected: (bool selected) {
-              setState(() {
-                if (selected) {
-                  _selectedOption = "Option 2";
-                }
-              });
-            },
-          ),
-        ],
-      ),
-    );
-  }
+@override
+State<MyThreeOptions> createState() => _MyThreeOptionsState();
+}
+
+class _MyThreeOptionsState extends State<MyThreeOptions> {
+int? _value = 1;
+
+@override
+Widget build(BuildContext context) {
+	return MaterialApp(
+	debugShowCheckedModeBanner: false,
+	// scaffold allows to
+	// set the appbar and body
+	home: Scaffold(
+		appBar: AppBar(
+		title: Text('Flutter - Choice chip'),
+		),
+		body: Wrap(
+		// list of length 3
+		children: List.generate(
+			3,
+			(int index) {
+			// choice chip allow us to
+			// set its properties.
+			return ChoiceChip(
+				padding: EdgeInsets.all(8),
+				label: Text('Item $index'),
+				// color of selected chip
+				selectedColor: Colors.green,
+				// selected chip value
+				selected: _value == index,
+				// onselected method
+				onSelected: (bool selected) {
+				setState(() {
+					_value = selected ? index : null;
+				});
+				},
+			);
+			},
+		).toList(),
+		),
+	),
+	);
+}
 }
