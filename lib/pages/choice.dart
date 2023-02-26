@@ -1,121 +1,68 @@
 import 'package:flutter/material.dart';
 
-class ChoicePage extends StatefulWidget {
+// import 'package:velocity_x/velocity_x.dart';
+// import 'package:auto_size_text/auto_size_text.dart';
+class Silder2 extends StatefulWidget {
+  const Silder2({super.key});
+
   @override
-  _ChoicePageState createState() => _ChoicePageState();
+  State<Silder2> createState() => _SilderState();
 }
 
-class _ChoicePageState extends State<ChoicePage> {
-  bool _selectedOption = false;
-  bool _Selected = false;
-  int? _value = 1;
-  
+
+class _SilderState extends State<Silder2> {
   @override
+ 
+  double _currentValue = 0;
   Widget build(BuildContext context) {
-    return Material( 
-      child: new Column(
-        children: [
-          SizedBox(height: 35,),
-          Row(
-          children: [
-                  Icon(Icons.arrow_back_ios_new_sharp, size: 14),
-                  Expanded(
-                      child: Text("App Store"),
-                      ),
-                ],),
-
-          SizedBox(height: 60,),
-          Text('''Choose areas you'd 
-      like to elevate''',
-      style: TextStyle(fontSize: 26),
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        elevation: 0,
+        leading: Transform.translate(offset: Offset(-12,0),child:Icon(Icons.arrow_back_ios_new_sharp, size: 14, color: Colors.black)),
+        titleSpacing: -29,
+        title: Text("Back",style: TextStyle(
+          color: Colors.black,
+          fontSize: 14,
+        ),),
       ),
-      SizedBox(height: 160,),
-
-       
-    ChoiceChip(
-    selected: _Selected,
-    label: Text('Motivation'),
-    labelStyle: TextStyle(color: Colors.white),
-    backgroundColor: Colors.black54,
-    selectedColor: Colors.blue,
-    onSelected: (bool selected) {
-      setState(() {
-        _Selected = !_Selected;
-        
-      });
-    }
-  ),
-
-   ChoiceChip(
-    selected: _Selected,
-    label: Text('Motivation'),
-    labelStyle: TextStyle(color: Colors.white),
-    backgroundColor: Colors.black54,
-    selectedColor: Colors.blue,
-    onSelected: (bool selected) {
-      setState(() {
-        _Selected = !_Selected;
-        
-      });
-    }
-  ),
-  
-
-      Column(
-        children: <Widget>[
-         
-          Wrap(
-  children: <Widget>[
-   ChoiceChip(
-  label: Text('Option 1'),
-  labelStyle: TextStyle(color: Colors.white),
-    // backgroundColor: Colors.black54,
-    selectedColor: Colors.blue,
-  // selected: _selectedOption == 1,
-  onSelected: (bool selected) {
-    setState(() {
-      // _Selected= false;
-      // _selectedOption = !_Selected ;
-      _Selected: !_Selected;
-    });
-  }, selected: _Selected, 
-)
-
-
-  
-  ],
-)
-        ],
-        
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            
+            // mainAxisAlignment : MainAxisAlignment.spaceEvenly
+            children: [
+              SizedBox(height: 30,),
+              Text(_currentValue.toString(), style: TextStyle(
+                fontSize: 30,
+                color: Colors.blue,
+                
+              ),
+              ),
+              // SizedBox(height: -110,),
+              // TextFormField(
+              //   keyboardType: TextInputType.number,
+              // ),
+              Slider(
+                min: 0 ,
+                max: 10,
+                divisions: 20,
+                // label: _currentValue.round().toString(),
+                // activeColor: Colors.red,
+                // inactiveColor: Colors.grey,
+                thumbColor: Colors.blue,
+                value: _currentValue, 
+              onChanged: (value){
+                setState(() {
+                  _currentValue = value;
+                });
+              })
+            ],
+          ),
+        ),
       ),
-
-       Wrap(
-		children: List.generate(
-			3,
-			(int index) {
-			return ChoiceChip(
-				padding: EdgeInsets.all(8),
-				label: Text('Item '),
-				selectedColor: Colors.green,
-				selected: _value == index,
-				onSelected: (bool selected) {
-				setState(() {
-					_value = selected ? index : null;
-				});
-				},
-			);
-			},
-		).toList(),
-		),
-      
-        
-        ],
-      ),
-      
-     
-      
     );
   }
- 
-
 }

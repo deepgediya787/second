@@ -9,7 +9,7 @@ import 'package:y_not/pages/select.dart';
 import 'package:y_not/pages/xender.dart';
 
 
-
+// @dart=2.9
 void main() {
   runApp(MyApp());
 }
@@ -17,12 +17,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}): super(key: key);
   @override
+  
   Widget build (BuildContext context){
     return MaterialApp(
      debugShowCheckedModeBanner: false,
       // initialRoute: "/",
       routes:{
-        "/": (BuildContext context) => ChoicePage()
+        "/": (BuildContext context) => Silder2()
         // "/firstpage": (BuildContext context) => FirstPage(),
         //  "/": (BuildContext context) => LoginPage(),
         //   "/loginpage": (BuildContext context) => LoginPage(),
