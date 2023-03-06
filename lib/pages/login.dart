@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:y_not/pages/first.dart';
 
 
 
@@ -38,7 +39,10 @@ class LoginPage extends StatelessWidget {
                   ),
                   
                   onPressed: (){
-                      
+                       Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FirstPage()),
+                  );
                   },
 
                 ),
@@ -104,7 +108,10 @@ class LoginPage extends StatelessWidget {
                 ),
                 
                 onPressed: (){
-                    
+                     Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FirstPage()) ,
+                  );
                 },
 
               ),
